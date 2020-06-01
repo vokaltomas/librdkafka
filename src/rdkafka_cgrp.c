@@ -1028,6 +1028,7 @@ static void rd_kafka_cgrp_handle_JoinGroup (rd_kafka_t *rk,
                         rkgm->rkgm_group_instance_id =
                                 rd_kafkap_str_copy(&GroupInstanceId);
                         rd_list_init(&rkgm->rkgm_eligible, 0, NULL);
+                        rkgm->rkgm_generation = -1;
 
                         if (rd_kafka_group_MemberMetadata_consumer_read(
                                     rkb, rkgm, &Protocol, &MemberMetadata)) {
