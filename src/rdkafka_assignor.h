@@ -38,6 +38,7 @@ typedef struct rd_kafka_group_member_s {
         rd_kafkap_str_t                 *rkgm_group_instance_id;
         rd_kafkap_bytes_t               *rkgm_userdata;
         rd_kafkap_bytes_t               *rkgm_member_metadata;
+        int                              rkgm_generation;
 } rd_kafka_group_member_t;
 
 
