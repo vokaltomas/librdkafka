@@ -2029,7 +2029,7 @@ void rd_kafka_ApiVersionRequest (rd_kafka_broker_t *rkb,
                 /* No request header tags */
                 rd_kafka_buf_write_i8(rkbuf, 0);
 
-                rkbuf->rkbuf_flags |= RD_KAFKA_OP_F_FLEXVER;
+                //rkbuf->rkbuf_flags |= RD_KAFKA_OP_F_FLEXVER;
 
                 /* ClientSoftwareName */
                 rd_kafka_buf_write_compact_str(rkbuf,
