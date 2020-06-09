@@ -534,6 +534,9 @@ rd_kafka_toppars_pause_resume (rd_kafka_t *rk,
 
 rd_kafka_topic_partition_t *rd_kafka_topic_partition_new (const char *topic,
 							  int32_t partition);
+rd_kafka_topic_partition_t *
+rd_kafka_topic_partition_copy (const rd_kafka_topic_partition_t *src);
+void *rd_kafka_topic_partition_copy_void (const void *src);
 void rd_kafka_topic_partition_destroy_free (void *ptr);
 rd_kafka_topic_partition_t *
 rd_kafka_topic_partition_new_from_rktp (rd_kafka_toppar_t *rktp);
@@ -560,6 +563,10 @@ int rd_kafka_topic_partition_match (rd_kafka_t *rk,
 
 int rd_kafka_topic_partition_cmp (const void *_a, const void *_b);
 unsigned int rd_kafka_topic_partition_hash (const void *a);
+
+rd_kafka_topic_partition_t *
+rd_kafka_topic_partition_list_find_topic (
+        const rd_kafka_topic_partition_list_t *rktparlist, const char *topic);
 
 void rd_kafka_topic_partition_list_sort_by_topic (
         rd_kafka_topic_partition_list_t *rktparlist);
