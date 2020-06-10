@@ -1436,6 +1436,7 @@ static void rd_kafka_txn_handle_TxnOffsetCommit (rd_kafka_t *rk,
         case RD_KAFKA_RESP_ERR_NOT_COORDINATOR:
         case RD_KAFKA_RESP_ERR_COORDINATOR_NOT_AVAILABLE:
         case RD_KAFKA_RESP_ERR__TRANSPORT:
+        case RD_KAFKA_RESP_ERR__TIMED_OUT:
                 /* Note: this is the group coordinator, not the
                  *       transaction coordinator. */
                 rd_kafka_coord_cache_evict(&rk->rk_coord_cache, rkb);
@@ -1649,6 +1650,7 @@ static void rd_kafka_txn_handle_AddOffsetsToTxn (rd_kafka_t *rk,
         case RD_KAFKA_RESP_ERR_NOT_COORDINATOR:
         case RD_KAFKA_RESP_ERR__TRANSPORT:
         case RD_KAFKA_RESP_ERR_REQUEST_TIMED_OUT:
+        case RD_KAFKA_RESP_ERR__TIMED_OUT:
                 actions |= RD_KAFKA_ERR_ACTION_RETRY|
                         RD_KAFKA_ERR_ACTION_REFRESH;
                 break;
